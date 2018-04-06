@@ -1,0 +1,15 @@
+const env = require('../.env')
+const telegraf = require('telegraf')
+const moment = require('moment')
+const bot = new telegraf(env.token)
+
+bot.hears('pizza', c=> c.reply("Quero"))
+bot.hears(['figado','chuchu'], c=> c.reply("Credo"))
+bot.hears('🐷',c=>c.reply("bacon") )
+bot.hears(/burguer/i,c=> c.reply("queroo!"))
+bot.hears(/(\d{2}\/\d{2}\/\d{4})/,c =>{
+    moment.locale('pt-BR')
+    const data = moment(c.match[1],'DD/MM/YYYY')
+    c.reply(`${c.match[1]} cai em ${data.format('dddd')}`)
+})
+bot.startPolling()
