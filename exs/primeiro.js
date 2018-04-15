@@ -14,11 +14,11 @@ bot.on('text',async (c,next) => {
 })
 
 bot.on('text',async (c,next) => {
-    await c.reply('seu merda')
+    await c.reply('seu lindo')
     next()
 })
 bot.on('text', async(c,next) => {
-    await c.reply('lixooo')
+    await c.reply('lindo')
 })
 
 bot.startPolling();
